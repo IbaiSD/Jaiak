@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title>Your Application Name</title>
+		<script type="text/javascript" charset="utf-8" src="cordova-1.7.0rc1.js"></script>
+        <script type="text/javascript" charset="utf-8" src="main.js"></script>
+		<link href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojox/mobile/themes/iphone/iphone.css" rel="stylesheet"></link>
+		<link href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dojox/mobile/themes/iphone/iphone.css" rel="stylesheet" type="text/css"></link>
+		<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"
+		djConfig="isDebug:true, parseOnLoad:true"></script>
+		<script type="text/javascript">
+			// Use the lightweight parser
+			dojo.require("dojox.mobile.parser");
+			// Require Dojo mobile
+			dojo.require("dojox.mobile");
+			//Require the compat if the client isn't Webkit-based
+			dojo.requireIf(!dojo.isWebKit,"dojox.mobile.compat");
+		</script>
+    </head>
+    <body>
+	
+ 
+		   <!-- the view or "page"; select it as the "home" screen -->
+		<div id="settings" dojoType="dojox.mobile.View" selected="true">
+		 
+			<!-- a sample heading -->
+			<h1 dojoType="dojox.mobile.Heading">"Homepage" View</h1>
+		 
+			<!-- a rounded rectangle list container -->
+			<ul dojoType="dojox.mobile.RoundRectList">
+		 
+				<!-- list item with an icon containing a switch -->
+				<li dojoType="dojox.mobile.ListItem" icon="images/icon-1.png">
+					Airplane Mode
+					<!-- the switch -->
+					<div class="mblItemSwitch" dojoType="dojox.mobile.Switch"></div>
+				</li>
+		 
+				<!-- list item with an icon that slides this view away and then loads another page -->
+				<li dojoType="dojox.mobile.ListItem" icon="images/icon-2.png" rightText="mac">
+					Wi-Fi
+				</li>
+		 
+				<!-- list item with an icon that slides to a view called "general" -->
+				<li dojoType="dojox.mobile.ListItem" icon="images/icon-3.png" rightText="AcmePhone" moveTo="general">
+					Carrier
+				</li>
+			</ul>
+		</div>
+		<!-- The "General" sub-page -->
+		<div id="general" dojoType="dojox.mobile.View">
+			<!-- a sample heading -->
+			<h1 dojoType="dojox.mobile.Heading" back="Settings" moveTo="settings">General View</h1>
+			<!-- a rounded rectangle list container -->
+			<ul dojoType="dojox.mobile.RoundRectList">
+				<li dojoType="dojox.mobile.ListItem" moveTo="about">
+				About
+				</li>
+				<li dojoType="dojox.mobile.ListItem" rightText="2h 40m" moveTo="about">
+				Usage
+				</li>
+			</ul>
+		</div>
+		 
+		<!-- And let's add another view "About" -->
+		<div id="about" dojoType="dojox.mobile.View">
+			<!-- Main view heading -->
+			<h1 dojoType="dojox.mobile.Heading" back="General" moveTo="general">About</h1>
+			<!-- subheading -->
+			<h2 dojoType="dojox.mobile.RoundRectCategory">Generic Mobile Device</h2>
+			<!-- a rounded rectangle list container -->
+			<ul dojoType="dojox.mobile.RoundRectList">
+				<li dojoType="dojox.mobile.ListItem" rightText="AcmePhone">
+				Network                                            
+				</li>                                                
+				<li dojoType="dojox.mobile.ListItem" rightText="AcmePhone">
+				Line
+				</li>
+				<li dojoType="dojox.mobile.ListItem" rightText="1024">
+				Songs
+				</li>
+				<li dojoType="dojox.mobile.ListItem" rightText="10">
+				Videos
+				</li>
+			</ul>
+</div>
+    </body>
+</html>
